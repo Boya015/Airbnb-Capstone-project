@@ -1,0 +1,36 @@
+.explore-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border-top: solid 1px rgb(237, 229, 229);
+  }
+  
+  .explore-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .explore-cities,
+  .unique-stays,
+  .breadcrumbs {
+    width: 30%;
+  }
+  
+  .breadcrumbs p {
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .explore-cities {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .unique-stays {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  

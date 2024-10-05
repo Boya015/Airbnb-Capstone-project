@@ -1,0 +1,124 @@
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: black;
+}
+
+.search-bar {
+  display: flex;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 10px;
+  align-items: center;
+  max-width: 800px;
+  width: 100%;
+  justify-content: space-around;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 15px;
+}
+
+.search-section label {
+  font-size: 12px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.search-section input,
+.search-section select {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 5px 0;
+  width: 120px; /* Adjust width as needed */
+}
+
+.search-section > input {
+  color: #bbb;
+}
+.search-section input::placeholder,
+.search-section select {
+  color: #b0b0b0;
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 40px; /* Ensure the button is a square */
+  height: 40px;
+}
+
+.search-button:hover {
+  background-color: #e60023;
+}
+
+.guest-selector {
+  display: flex;
+  align-items: center;
+}
+.guest-button {
+  background-color: #ff7779;
+  color: #fff;
+  border: none;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  font-size: 18px;
+}
+.guest-button:hover {
+  background-color: #ff4444;
+}
+.guest-input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px;
+  margin: 0 5px;
+  color: #bbb;
+}
+
+.guest-popup {
+  position: absolute;
+  top: 200px;
+  left: 780px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.guest-input:focus {
+  outline: none;
+  border: 1px solid #ff7779;
+  box-shadow: 0 0 5px rgba(255, 119, 121, 0.5);
+}
+
+
+.guest-selector > label {
+  color: #bbb;
+}
+
+.guest-selector > button {
+  margin-left: 20px;
+}

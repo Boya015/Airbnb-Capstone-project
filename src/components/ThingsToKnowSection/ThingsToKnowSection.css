@@ -1,0 +1,19 @@
+.things-to-know-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+  }
+  
+  .things-to-know-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .house-rules,
+  .health-safety,
+  .cancellation-policy {
+    width: 30%;
+  }
+  

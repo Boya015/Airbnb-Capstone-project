@@ -1,0 +1,78 @@
+.listings-content {
+    width: 90%;
+    margin-left: 30px ;
+    padding: 20px;
+    margin-top: 40px;
+  }
+  
+  .listings-header  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .listings-info {
+    display: flex;
+    align-items: center;
+    
+  }
+  
+  .star-icon {
+    color: #ff385c;
+    margin-right: 5px;
+  }
+  
+  .listings-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .share-button,
+  .save-button {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  .save-button{
+    border: 0px;
+  }
+  .share-button{
+    border: 0px;
+  }
+
+  .listings-images {
+    
+    display: flex;
+    margin-top: 5px;
+  }
+  
+  .main-image {
+    width: 60%;
+    margin-right: 10px;
+  }
+  
+  .side-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .side-images img {
+    width: 48%;
+    margin-bottom: 10px;
+  }
+  
+  .show-all-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  

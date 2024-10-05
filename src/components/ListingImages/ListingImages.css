@@ -1,0 +1,80 @@
+.listing-images {
+    width: 50%;
+  }
+  
+  .listing-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-top: 60px;
+  }
+  
+  .listing-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .star-icon {
+    color: #ff385c;
+    margin-right: 5px;
+  }
+  
+  .listing-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .share-button,
+  .save-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .share-button:hover,
+  .save-button:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .images-grid {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    padding-left: 30px;
+  }
+  
+  .main-image {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .side-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    /* flex-direction: column; */
+  }
+  
+  .side-images img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .show-all-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  

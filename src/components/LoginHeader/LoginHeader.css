@@ -1,0 +1,14 @@
+.login-header {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .login-logo {
+    height: 60px;
+  }
+  

@@ -1,0 +1,52 @@
+.host-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 100%;  /* Set width to 100% for full-width alignment */
+    border-top: solid 1px rgb(237, 229, 229);
+    border-bottom: solid 1px rgb(237, 229, 229);
+  }
+  
+  .host-profile-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .host-details {
+    flex: 1;
+  }
+  
+  .host-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .host-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-host-button {
+    padding: 10px;
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .payment-warning {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #555;
+  }
+  

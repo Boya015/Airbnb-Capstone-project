@@ -1,0 +1,280 @@
+.inspiration-container {
+    width: 1440px;
+    padding: 96px 80px;
+    gap: 96px;
+    margin-left: -45px;
+  }
+  
+  .cards-section {
+    width: 1280px;
+    gap: 48px;
+  }
+  
+  .cards-section h2 {
+    margin-bottom: 24px;
+  }
+  
+  .cards-row {
+    display: flex;
+    gap: 24px;
+  }
+  
+  .city-card {
+    width: 324px;
+    height: 444px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .city-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .city-card  img {
+    height: 100%;
+  }
+  .card-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  .sandton-city .card-info {
+    background-color: #D32F2F;
+    height: 100px;
+  }
+  
+  .joburg-city .card-info {
+    background-color: #7B1FA2;
+    height: 100px;
+  }
+  
+  .woodmead .card-info {
+    background-color: #0288D1;
+    height: 100px;
+  }
+  
+  .hyde-park .card-info {
+    background-color: #388E3C;
+    height: 100px;
+  }
+  
+  .discover-experiences {
+    width: 1280px;
+    gap: 48px;
+  }
+  
+  .discover-experiences h2 {
+    margin-bottom: 24px;
+  }
+  
+  .experiences-row {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .experience-image {
+    width: 628px;
+    height: 628px;
+    position: relative;
+    border-radius: 8px;
+  }
+  
+  .experience-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .experience-info {
+    position: absolute;
+    bottom: 390px; 
+    left: 54px;
+    color: white;
+    font-size: 55px;
+  }
+  
+  .experience-info h3 {
+    margin: 0;
+  
+  }
+  
+  .experience-info button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .gift-cards-section {
+    margin-top: 44px;
+    width: 1280px;
+    gap: 46px;
+  }
+  
+  
+  .gift-cards-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  .left-content {
+    width: 377.78px;
+  }
+  
+  .left-content p {
+    font-size: 45px;
+    margin: 0 0 24px 0;
+  }
+  
+  .left-content button {
+    padding: 8px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+  }
+  
+  .gift-cards-image {
+    width: 854.22px;
+    height: 320px;
+    object-fit: cover;
+  }
+  
+  .hosting-section {
+    width: 1280px;
+    height: 640px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 0;
+    border-radius: 8px ;
+  }
+  
+  .hosting-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px ;
+  }
+  
+  .hosting-content {
+    position: absolute;
+    border-radius: 8px;
+    width: 1,280px;
+    height: 640px;
+    color: white;
+    font-size: 50px;
+    justify-content: space-between;
+    padding: 80px;
+    
+  }
+  
+  .hosting-content h3 {
+    margin: 0;
+  }
+  
+  .hosting-content button {
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .pre-footers {
+    width: 1280px;
+    gap: 32px;
+  }
+  
+  .pre-footers h2 {
+    margin-bottom: 14px;
+  }
+  
+  .getaways-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+  
+  .getaways-links a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .getaways-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .destinations {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .destinations div {
+    flex: 1 1 calc(25% - 20px);
+    min-width: 150px;
+  }
+  
+  .destinations h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .destinations p {
+    margin: 5px 0 0;
+    color: grey;
+  }
+  
+  /* Footer Section */
+  .footers {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    border-top: 1px solid #eaeaea;
+    margin-top: 40px;
+  }
+  
+  .footer-sections {
+    flex: 1;
+  }
+  
+  .footer-sections h4 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  
+  .footer-sections ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-sections ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-sections ul li a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .footer-sections ul li a:hover {
+    text-decoration: underline;
+  }
+  

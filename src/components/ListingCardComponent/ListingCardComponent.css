@@ -1,0 +1,150 @@
+.listing-card-component {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .listing-left {
+    width: 40%;
+    margin-left: 50px;
+  }
+  
+  .listing-right {
+    width: 30%;
+    margin-right: 50px;
+  }
+  
+  .listing-details,
+  .listing-features,
+  .listing-description,
+  .listing-actions,
+  .reservation-card {
+    margin-top: 20px;
+  }
+  .listing-details{
+    border-bottom: solid 1px #ddd ;
+    width: 100%;
+  }
+  .listing-description{
+    border-top: solid 1px #ddd ;
+    width: 100%;
+  }
+  .listing-features .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .listing-features .feature-item p {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+
+  .listing-features .feature-item span {
+    margin-left: 10px;
+    color: #666;
+  }
+  
+  .listing-actions {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .share-button,
+  .save-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .share-button:hover,
+  .save-button:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .reservation-card {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Drop shadow */
+  }
+  
+  .price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .price h3 {
+    margin: 0;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .reservation-details {
+    margin-top: 20px;
+  }
+  
+  .date-picker,
+  .guests-picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .reserve-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff385c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .reserve-button:hover {
+    background-color: #e60023;
+  }
+  
+  .pricing-breakdown {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .pricing-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .total {
+    font-weight: bold;
+  }
+  
+  .report-listing {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: black;
+    cursor: pointer;
+    margin-left: 40%;
+  }
+  
+  .report-listing a {
+    color: #ff385c;
+    text-decoration: underline;
+    margin-left: 3%;
+  }
+  
