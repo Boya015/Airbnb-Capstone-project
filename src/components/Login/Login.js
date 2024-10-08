@@ -21,7 +21,7 @@ const Login = () => {
       alert('Login successful!');
       
       // Redirect to Admin Dashboard
-      navigate('/admin'); // Use the appropriate route for your dashboard
+      navigate('/admin/02'); // Use the appropriate route for your dashboard
     } catch (error) {
       console.error('Error logging in:', error);
       alert('Login failed. Please check your credentials and try again.');
