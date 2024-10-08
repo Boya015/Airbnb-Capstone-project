@@ -53,7 +53,7 @@ const AdminDashboard = () => {
     <div>
       <AdminHeader />
       <div className="admin-dashboard">
-        <h1>Admin Dashboard - Manage Listings</h1>
+        <h1>My Listings</h1>
         
         <div className="listing-container">
           <h2>Listings</h2>

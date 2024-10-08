@@ -1,4 +1,7 @@
 .admin-dashboard {
-    padding: 20px;
-  }
-  
+  padding: 20px;
+}
+
+.admin-dashboard > h1 {
+  text-align: center;
+}

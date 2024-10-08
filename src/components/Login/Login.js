@@ -1,57 +1,45 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom'; // Use useNavigate instead of useHistory
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const navigate = useNavigate(); // Use useNavigate for navigation
+  const navigate = useNavigate(); // Initialize useNavigate for redirection
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    // Input validation
-    if (!email || !password) {
-      setError('Both email and password are required');
-      return;
-    }
-
     try {
-      // Use the full URL if necessary
-      const response = await axios.post('http://localhost:5000/api/users/login', { email, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login', { username, password });
+      const { token } = response.data;
 
-      // Assuming the API returns a token in the response
-      const token = response.data.token;
+      // Store the token and username in localStorage
+      localStorage.setItem('token', token); 
+      localStorage.setItem('username', username); // Save the username as well
 
-      // Save token in local storage for future requests
-      localStorage.setItem('authToken', token);
-
-      console.log('Login successful', response.data);
-
-      // Redirect to the dashboard using useNavigate
-      navigate('/admin-dashboard');
+      alert('Login successful!');
+      
+      // Redirect to Admin Dashboard
+      navigate('/admin'); // Use the appropriate route for your dashboard
     } catch (error) {
-      console.error('Login failed', error);
-      setError(error.response?.data?.message || 'Invalid email or password');
+      console.error('Error logging in:', error);
+      alert('Login failed. Please check your credentials and try again.');
     }
   };
 
   return (
     <div className="login-container">
       <h2>Login</h2>
-      {error && <p className="error">{error}</p>}
       <form onSubmit={handleLogin}>
         <div className="input-container">
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">Username</label>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
+            type="text"
+            id="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className="input-container">
@@ -62,11 +50,10 @@ const Login = () => {
             name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
         </div>
         <div className="forgot-password">
-          <Link to="/forgot-password">Forgot Password?</Link>
+          <a href="#">Forgot Password?</a>
         </div>
         <button type="submit" className="login-button">Login</button>
         <div className="signup-link">

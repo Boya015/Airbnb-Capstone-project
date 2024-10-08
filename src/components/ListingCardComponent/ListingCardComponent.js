@@ -8,14 +8,14 @@ import HomeIcon from '@mui/icons-material/Home';
 import CleanHandsIcon from '@mui/icons-material/CleanHands';
 import KeyIcon from '@mui/icons-material/VpnKey';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const ListingCardComponent = () => {
   const [checkInDate, setCheckInDate] = useState(null);
   const [checkOutDate, setCheckOutDate] = useState(null);
   const [guests, setGuests] = useState(2); // default value
   const [totalPrice, setTotalPrice] = useState(0);
-
+  const navigate = useNavigate(); 
   const basePricePerNight = 75; // Base price per night
 
   // Calculate total nights between check-in and check-out
@@ -38,6 +38,23 @@ const ListingCardComponent = () => {
     const serviceFee = 83;  // static service fee
     const taxesAndFees = 29; // static taxes and fees
     return roomTotal + cleaningFee + serviceFee + taxesAndFees;
+  };
+
+  useEffect(() => {
+    setTotalPrice(calculateTotalPrice());
+  }, [checkInDate, checkOutDate, guests]);
+
+  const handleReservation = () => {
+    const username = localStorage.getItem('username') || 'Guest';
+    const reservation = {
+      bookedBy: username,
+      property: 'Entire rental unit hosted by Liam',
+      checkin: checkInDate,
+      checkout: checkOutDate
+    };
+
+    // Navigate to the reservations list page and pass the reservation as state
+    navigate('/reservationsListPages', { state: { reservation } });
   };
 
   // Update total price when check-in, check-out, or guests change
@@ -125,7 +142,7 @@ const ListingCardComponent = () => {
           </div>
 
           <Link to="/reservationsListPages">
-            <button className="reserve-button">Reserve</button>
+            <button className="reserve-button"  onClick={handleReservation}>Reserve</button>
           </Link>
 
           <div className="pricing-breakdown">

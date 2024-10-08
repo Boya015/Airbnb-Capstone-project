@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './ReservationsList.css';
 
 const ReservationsList = () => {
-  const reservations = [
+  const location = useLocation();
+  const [reservations, setReservations] = useState([
     {
       bookedBy: "Johann Coetzee",
       property: "Property 1",
@@ -27,7 +29,18 @@ const ReservationsList = () => {
       checkin: "15/06/2024",
       checkout: "28/06/2024"
     }
-  ];
+  ]);
+
+  useEffect(() => {
+    if (location.state && location.state.reservation) {
+      setReservations((prevReservations) => [...prevReservations, location.state.reservation]);
+    }
+  }, [location.state]);
+
+    // Handle delete functionality
+    const handleDelete = (indexToRemove) => {
+      setReservations((prevReservations) => prevReservations.filter((_, index) => index !== indexToRemove));
+    };
 
   return (
     <div className="reservations-list">
@@ -50,7 +63,7 @@ const ReservationsList = () => {
               <td>{reservation.checkin}</td>
               <td>{reservation.checkout}</td>
               <td>
-                <button className="delete-button">Delete</button>
+              <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
               </td>
             </tr>
           ))}
