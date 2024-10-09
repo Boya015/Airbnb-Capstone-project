@@ -8,6 +8,7 @@
   .cards-section {
     width: 1280px;
     gap: 48px;
+    margin-left: 60px;
   }
   
   .cards-section h2 {
@@ -69,6 +70,7 @@
   .discover-experiences {
     width: 1280px;
     gap: 48px;
+    margin-left: 60px;
   }
   
   .discover-experiences h2 {
@@ -128,6 +130,7 @@
     display: flex;
     align-items: center;
     gap: 40px;
+    margin-left: 60px;
   }
   
   .left-content {
@@ -162,6 +165,7 @@
     align-items: center;
     padding: 80px 0;
     border-radius: 8px ;
+    margin-left: 60px;
   }
   
   .hosting-section img {
@@ -172,6 +176,7 @@
   }
   
   .hosting-content {
+    
     position: absolute;
     border-radius: 8px;
     width: 1,280px;
@@ -199,6 +204,7 @@
   .pre-footers {
     width: 1280px;
     gap: 32px;
+    margin-left: 60px;
   }
   
   .pre-footers h2 {
@@ -249,6 +255,7 @@
     padding: 40px 0;
     border-top: 1px solid #eaeaea;
     margin-top: 40px;
+    margin-left: 60px;
   }
   
   .footer-sections {

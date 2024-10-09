@@ -1,56 +1,91 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './CreateListing.css';
 
 const CreateListing = () => {
-  const [amenities, setAmenities] = useState([]);
+  const [formData, setFormData] = useState({
+    name: '',
+    description: '',
+    details: '',
+    rating: 0,
+    reviews: 0,
+    price: 0,
+    image: '',
+    amenities: [],
+  });
+
   const [amenity, setAmenity] = useState("");
+  const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleAddAmenity = () => {
     if (amenity.trim() !== "") {
-      setAmenities([...amenities, amenity]);
+      setFormData({
+        ...formData,
+        amenities: [...formData.amenities, amenity]
+      });
       setAmenity("");
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      // The formData object is constructed based on user input
+      const response = await axios.post('http://localhost:5000/api/accommodations', formData);
+      console.log('Accommodation added:', response.data);
+      
+      // Redirect to admin/02
+      navigate('/admin/02');
+    } catch (error) {
+      console.error('Error creating accommodation:', error);
+    }
+  };
   return (
     <div className="create-listing">
       <h2>Create Listing</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Listing Name</label>
-          <input type="text" />
+          <input type="text" name="name" value={formData.name} onChange={handleInputChange} required />
         </div>
         <div className="form-row">
           <div className="form-group">
-            <label>Rooms</label>
-            <input type="number" />
-          </div>
-          <div className="form-group">
-            <label>Baths</label>
-            <input type="number" />
-          </div>
-          <div className="form-group">
-            <label>Type</label>
-            <select>
-              <option value="">Select Type</option>
-              <option value="house">House</option>
-              <option value="apartment">Apartment</option>
-            </select>
+            <label>Description</label>
+            <textarea name="description" value={formData.description} onChange={handleInputChange} required></textarea>
           </div>
         </div>
         <div className="form-row">
           <div className="form-group">
-            <label>Location</label>
-            <input type="text" />
+            <label>Details</label>
+            <input type="text" name="details" value={formData.details} onChange={handleInputChange} required />
           </div>
           <div className="form-group">
-            <label>Location</label>
-            <input type="text" />
+            <label>Rating</label>
+            <input type="number" name="rating" value={formData.rating} onChange={handleInputChange} required />
+          </div>
+          <div className="form-group">
+            <label>Reviews</label>
+            <input type="number" name="reviews" value={formData.reviews} onChange={handleInputChange} required />
+          </div>
+          <div className="form-group">
+            <label>Price</label>
+            <input type="number" name="price" value={formData.price} onChange={handleInputChange} required />
           </div>
         </div>
-        <div className="form-group">
-          <label>Description</label>
-          <textarea></textarea>
+        <div className="form-row">
+          <div className="form-group">
+            <label>Image URL</label>
+            <input type="text" name="image" value={formData.image} onChange={handleInputChange} required />
+          </div>
         </div>
         <div className="form-group">
           <label>Amenities</label>
@@ -63,19 +98,14 @@ const CreateListing = () => {
             <button type="button" onClick={handleAddAmenity}>Add</button>
           </div>
           <ul>
-            {amenities.map((item, index) => (
+            {formData.amenities.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
         </div>
-        <div className="form-group">
-          <label>Images</label>
-          <button type="button" className="upload-button">Upload Image</button>
-          <textarea></textarea>
-        </div>
         <div className="form-actions">
           <button type="submit" className="create-button">Create</button>
-          <button type="button" className="cancel-button">Cancel</button>
+          <button type="button" className="cancel-button" onClick={() => navigate(-1)}>Cancel</button>
         </div>
       </form>
     </div>

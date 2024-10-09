@@ -57,3 +57,7 @@
   cursor: pointer;
   font-size: 26px;
 }
+
+.banner-text-button:hover {
+  background-color: #ff385c;
+}

@@ -5,7 +5,7 @@ import './ViewMyListings.css';
 const ViewMyListings = () => {
   return (
     <div className="view-my-listings-container">
-        <Link to="/listing/:id">
+        <Link to="/admin/02">
       <button className="view-my-listings-button">
         View my listings
       </button>

@@ -10,8 +10,8 @@ const HotelList = () => {
       description: "3 Room Bedroom",
       details: "4-6 guests · Entire Home · 5 beds · 3 bath · Wifi · Kitchen · Free Parking",
       rating: 5.0,
-      reviews: 450,
-      price: 345
+      reviews: 318,
+      price: 325
     },
     {
       name: "Woodmead City Hotel",
@@ -29,7 +29,7 @@ const HotelList = () => {
       details: "4-6 guests · Entire Home · 5 beds · 3 bath · Wifi · Kitchen · Free Parking",
       rating: 5.0,
       reviews: 318,
-      price: 200
+      price: 125
     }
   ];
 

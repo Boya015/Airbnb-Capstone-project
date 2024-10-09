@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
 const SignUp = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
+  const navigate = useNavigate();
   const handleSignUp = async (e) => {
     e.preventDefault();
+    if (!username || !password || !email) {
+      alert('Please fill all fields');
+      return;
+    }
+
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/signup', { username, password, email });
+      await axios.post('http://localhost:5000/api/auth/register', { username, password, email });
       alert('Sign up successful!');
+      navigate('/admin/02');
     } catch (error) {
       console.error('Error signing up:', error);
       alert('Sign up failed. Please check your details and try again.');
