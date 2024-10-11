@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
 import './HotelList.css';
 import StarIcon from '@mui/icons-material/Star';
 
@@ -6,6 +7,7 @@ const HotelList = () => {
   const [hotels, setHotels] = useState([]); // State to hold the hotel data
   const [loading, setLoading] = useState(true); // State to manage loading status
   const [error, setError] = useState(null); // State to handle errors
+  const navigate = useNavigate(); // Hook for navigation
 
   // Fetch hotel data from the API
   useEffect(() => {
@@ -27,6 +29,28 @@ const HotelList = () => {
     fetchHotels(); // Call the fetch function
   }, []); // Empty dependency array means this runs once when the component mounts
 
+  const handleDelete = async (id) => {
+    // Delete hotel by ID
+    try {
+      const response = await fetch(`http://localhost:5000/api/accommodations/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        setHotels(hotels.filter(hotel => hotel._id !== id)); // Remove the hotel from state
+      } else {
+        throw new Error('Failed to delete the hotel');
+      }
+    } catch (error) {
+      setError(error.message); // Handle any errors that occur during deletion
+    }
+  };
+
+  const handleUpdate = (id) => {
+    // Redirect to the update page with hotel ID
+    navigate(`/update/${id}`);
+  };
+
   if (loading) {
     return <div>Loading...</div>; // Show loading message while data is being fetched
   }
@@ -38,8 +62,8 @@ const HotelList = () => {
   return (
     <div className="hotel-list">
       <h2>My Hotel List</h2>
-      {hotels.map((hotel, index) => (
-        <div className="hotel-card" key={index}>
+      {hotels.map((hotel) => (
+        <div className="hotel-card" key={hotel._id}>
           <img src={hotel.image} alt={hotel.name} className="hotel-image" />
           <div className="hotel-info">
             <h3>{hotel.description}</h3>
@@ -51,8 +75,8 @@ const HotelList = () => {
             <div className="hotel-price">${hotel.price} /night</div>
           </div>
           <div className="hotel-actions">
-            <button className="update-button">Update</button>
-            <button className="delete-button">Delete</button>
+            <button className="update-button" onClick={() => handleUpdate(hotel._id)}>Update</button>
+            <button className="delete-button" onClick={() => handleDelete(hotel._id)}>Delete</button>
           </div>
         </div>
       ))}

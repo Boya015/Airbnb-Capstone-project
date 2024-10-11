@@ -4,6 +4,7 @@ import HomePage from '../src/Pages/HomePage/HomePage';
 import ListingPage from './Pages/HomePage/ListingPage';
 import SearchResultsPage from '../src/Pages/HomePage/SearchResultsPage';
 import AdminHotel from './Pages/AdminPages/AddHotel' 
+import UpdatePage from './Pages/UpdatePage/UpdatePage';
 import ReservationsListPages from './Pages/ReservationsListPages/ReservationsListPages';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import LuxeSearchPage from './Pages/LuxeSearchPage/LuxeSearchPage';
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/listing/:id" element={<ListingPage />} />
           <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/admin/02" element={<AdminHotel />} />
+          <Route path="/update/:id" element={<UpdatePage />} />
           <Route path="/reservationsListPages" element={<ReservationsListPages />} />
           <Route path="/loginPage" element={<LoginPage />} />
           <Route path="/signup" element={ <SignUp />} />

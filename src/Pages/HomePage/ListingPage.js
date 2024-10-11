@@ -12,7 +12,7 @@ import ListingCardComponent from '../../components/ListingCardComponent/ListingC
 import ImageGallery from '../../components/ImageGallery/ImageGallery';
 import SearchBox from '../../components/Search/SearchBox';
 import PreFooter from '../../components/PreFooter/PreFooter';
-// import ListingImages from '../../components/ListingImages/ListingImages';
+
 
 
 function ListingPage() {
@@ -20,7 +20,6 @@ function ListingPage() {
     <div>
       <SearchBox />
       <div className="listing-page">
-      {/* <ListingImages /> */}
       <ImageGallery />
       <ListingCardComponent />
       <SleepSection />

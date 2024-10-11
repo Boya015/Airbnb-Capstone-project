@@ -10,7 +10,7 @@ const ReservationsList = () => {
     // Fetch reservations from the backend API
     const fetchReservations = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/reservations'); // Make sure this matches your backend route
+        const response = await fetch('http://localhost:5000/api/reservations'); // Adjust this to match your backend route
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -30,11 +30,9 @@ const ReservationsList = () => {
   }, [location.state]);
 
   // Handle delete functionality
-  const handleDelete = async (indexToRemove) => {
-    const reservationToDelete = reservations[indexToRemove];
-    
+  const handleDelete = async (reservationId) => {
     try {
-      const response = await fetch(`/api/reservations/${reservationToDelete._id}`, {
+      const response = await fetch(`http://localhost:5000/api/reservations/${reservationId}`, {
         method: 'DELETE',
       });
 
@@ -42,8 +40,9 @@ const ReservationsList = () => {
         throw new Error('Failed to delete the reservation');
       }
 
+      // Update state to remove the deleted reservation
       setReservations((prevReservations) =>
-        prevReservations.filter((_, index) => index !== indexToRemove)
+        prevReservations.filter((reservation) => reservation._id !== reservationId)
       );
     } catch (error) {
       console.error('Error deleting reservation:', error);
@@ -64,14 +63,14 @@ const ReservationsList = () => {
           </tr>
         </thead>
         <tbody>
-          {reservations.map((reservation, index) => (
+          {reservations.map((reservation) => (
             <tr key={reservation._id}> {/* Use a unique identifier for the key */}
               <td>{reservation.bookedBy}</td>
               <td>{reservation.property}</td>
               <td>{new Date(reservation.checkin).toLocaleDateString()}</td> {/* Format dates */}
               <td>{new Date(reservation.checkout).toLocaleDateString()}</td> {/* Format dates */}
               <td>
-                <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
+                <button className="delete-button" onClick={() => handleDelete(reservation._id)}>Delete</button>
               </td>
             </tr>
           ))}
