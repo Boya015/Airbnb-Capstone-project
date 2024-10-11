@@ -4,43 +4,51 @@ import './ReservationsList.css';
 
 const ReservationsList = () => {
   const location = useLocation();
-  const [reservations, setReservations] = useState([
-    {
-      bookedBy: "Johann Coetzee",
-      property: "Property 1",
-      checkin: "19/06/2024",
-      checkout: "24/06/2024"
-    },
-    {
-      bookedBy: "Liam Williams",
-      property: "Property 2",
-      checkin: "19/06/2024",
-      checkout: "19/06/2024"
-    },
-    {
-      bookedBy: "Banele Ndlovu",
-      property: "Property 1",
-      checkin: "22/05/2024",
-      checkout: "28/05/2024"
-    },
-    {
-      bookedBy: "Damian Smith",
-      property: "Property 3",
-      checkin: "15/06/2024",
-      checkout: "28/06/2024"
-    }
-  ]);
+  const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
+    // Fetch reservations from the backend API
+    const fetchReservations = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/reservations'); // Make sure this matches your backend route
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setReservations(data);
+      } catch (error) {
+        console.error('Error fetching reservations:', error);
+      }
+    };
+
+    fetchReservations();
+
+    // Add new reservation from location state if it exists
     if (location.state && location.state.reservation) {
       setReservations((prevReservations) => [...prevReservations, location.state.reservation]);
     }
   }, [location.state]);
 
-    // Handle delete functionality
-    const handleDelete = (indexToRemove) => {
-      setReservations((prevReservations) => prevReservations.filter((_, index) => index !== indexToRemove));
-    };
+  // Handle delete functionality
+  const handleDelete = async (indexToRemove) => {
+    const reservationToDelete = reservations[indexToRemove];
+    
+    try {
+      const response = await fetch(`/api/reservations/${reservationToDelete._id}`, {
+        method: 'DELETE',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to delete the reservation');
+      }
+
+      setReservations((prevReservations) =>
+        prevReservations.filter((_, index) => index !== indexToRemove)
+      );
+    } catch (error) {
+      console.error('Error deleting reservation:', error);
+    }
+  };
 
   return (
     <div className="reservations-list">
@@ -57,13 +65,13 @@ const ReservationsList = () => {
         </thead>
         <tbody>
           {reservations.map((reservation, index) => (
-            <tr key={index}>
+            <tr key={reservation._id}> {/* Use a unique identifier for the key */}
               <td>{reservation.bookedBy}</td>
               <td>{reservation.property}</td>
-              <td>{reservation.checkin}</td>
-              <td>{reservation.checkout}</td>
+              <td>{new Date(reservation.checkin).toLocaleDateString()}</td> {/* Format dates */}
+              <td>{new Date(reservation.checkout).toLocaleDateString()}</td> {/* Format dates */}
               <td>
-              <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
+                <button className="delete-button" onClick={() => handleDelete(index)}>Delete</button>
               </td>
             </tr>
           ))}

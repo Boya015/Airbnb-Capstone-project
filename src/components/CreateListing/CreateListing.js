@@ -40,8 +40,8 @@ const CreateListing = () => {
     e.preventDefault();
     try {
       // The formData object is constructed based on user input
-      const response = await axios.post('http://localhost:5000/api/accommodations', formData);
-      console.log('Accommodation added:', response.data);
+      const response = await axios.post('http://localhost:5000/api/accommodation', formData);
+      console.log('accommodation added:', response.data);
       
       // Redirect to admin/02
       navigate('/admin/02');
